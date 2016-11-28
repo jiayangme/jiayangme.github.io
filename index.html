@@ -45,9 +45,21 @@
   
 
   
+    
+      
+    
+
+    
+  
 
   
 
+  
+    
+      
+    
+
+    
   
 
   
@@ -55,7 +67,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -206,7 +218,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            关于
+            关于我
           </a>
         </li>
       
@@ -358,18 +370,15 @@
             <h3 id="Android-Studio-导入-jar-包及第三方开源库教程"><a href="#Android-Studio-导入-jar-包及第三方开源库教程" class="headerlink" title="Android Studio 导入 jar 包及第三方开源库教程"></a>Android Studio 导入 jar 包及第三方开源库教程</h3><p>可分为以下三种情况：  </p>
 <ol>
 <li>jar<br>将要添加的 jar 包放在项目的 module (默认叫app) 的 libs 下，右键 jar 包，选择 “Add As Library…”，添加成功。<br><img src="http://upload-images.jianshu.io/upload_images/1896810-adeccc54f08e65c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-</ol>
-<ul>
 <li>远程开源库<br>所谓远程开源库，指你不需要下载下来，只要添加一句依赖，Android Studio 自动帮你下载。远程开源库的添加方式很简单，在 github 上找到此开源库，在开源库的下面说明文档中有添加 dependencies 的方    式。如果没有，就不能使用这种方式添加。把红色标记的依赖添加到     build.gradle（module: app）中（注意：不是             build.gradle(Project:..）），别忘了 “Sync Now” 同步一下。<br><img src="http://upload-images.jianshu.io/upload_images/1896810-8a1b4f4086b11973.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
 <li><p>本地开源库<br>将开源库下载下来，放在与 app 同级目录下，例如我放的一个开源库叫 “volley” ，然后在 setings.gradle 文件中，这样添加:</p>
 <pre><code>include &apos;:app&apos;,&apos;:volley&apos;
 </code></pre><p>再回到 build.gradle（module : app） 中，在 dependencies 添加依赖:</p>
-<pre><code>compile project(&apos;:volley&apos;)
-</code></pre><p>就添加成功了。</p>
+<p>   compile project(‘:volley’)<br>就添加成功了。</p>
 </li>
-</ul>
+</ol>
 <hr>
-<p>以前不理解写文章的辛苦，总认为别人写得晦涩难懂，是我绝对不会写成这样。只有亲自尝试后才会理解别人写作的付出唉~^_^~。</p>
+<p>以前不理解写文章的辛苦，总认为文章写得晦涩难懂，是我绝对不会写成这样。只有亲自尝试后才会理解别人写作的付出唉~^_^~。</p>
 
           
         
@@ -603,6 +612,17 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jiayangme" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
           
         </div>
 
