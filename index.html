@@ -271,6 +271,150 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/03/加油宝简洁版Android端开发历程/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="嘉阳">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/protrait.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="嘉阳的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="嘉阳的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/03/加油宝简洁版Android端开发历程/" itemprop="url">
+                  加油宝简洁版Android端开发历程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-03T11:14:45+08:00">
+                2017-01-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一个尚在开发阶段的App—加油宝简洁版<br>源码地址：<a href="https://github.com/jiayangme/work" target="_blank" rel="external">https://github.com/jiayangme/work</a><br>设计思想：<br>• <strong>面向对象，面向接口编程</strong><br>• <strong>低耦合和高内聚</strong><br>• <strong> 规范化</strong>，包括变量命名，dimen，drawable，id资源的命名，padding和margin使用的细微区别<br>• <strong>清晰化</strong>，页面的实现，脑海里会形成一条思路线，知道现在进行到哪一步。先整体，后局部。<br>• <strong>一定的扩展性</strong>，对象和接口的设计不局限于当前的需求，具有一定的扩展性<strong><br>•  DataBinding</strong> 数据绑定<br>•  一套默认的自动初始化框架，网络请求与渲染UI<br>•  后期将要做的事：优化页面，页面的设计以产品为核心</p>
+<p>完成情况：<br>1.App 架构<br>•  所有Activity基类BaseActivity。所有无网络请求的Activity继承<br>• 具有初始化网络请求功能的基类NetWorkBaseActivity，继承自BaseActivity。所有具有初始化网络请求的Activity继承，实现自动下拉刷新<br>• 基于DataBinding的Activity基类DataBindingBaseActivity。使用DataBinding的所有Activity继承<br>•  BaseFragment，BaseAdapter，BaseRequest，BaseResult<br>• 部分网络请求加载中处理，网络请求失败处理逻辑，现有项目下未成熟</p>
+<p>2.网络通信架构<br>  •  Retrofit ＋ Rxjava 构建数据加载器，实现与后台的数据传输，请求方式POST<br>  •请求体和部分请求参数使用BlackBox，Crypt共同加密，响应数据通过本地native方法解密，并通过Cmd分发器统一进行json反序列化<br>   •  请求回调设置为三种情况，code为0，请求成功。code不为0，请求结果错误。网络异常，请求         失败</p>
+<p>3.账户<br>•   账户的登录模块<br>•   注册模块<br>•   找回密码模块<br>•  手机验证码动态登录模块，尚未进入开发阶段</p>
+<p>4.产品<br>• 一级页面首页，基于Drakeet的MultiType开源项目，实现低耦合，更加优雅的首页模块<br>• 一级页面理财产品模块<br>• 一级页面车主加油详情模块，页面不美观，待重新设计<br>•  二级页面四类理财产品列表模块，页面尚待美化<br>•  二级页面车主加油支付方式选择模块，尚未进入开发阶段<br>•  三级页面理财产品详情模块，验证交易密码对话框<br>• 三级页面车主加油支付模块，尚未进入开发阶段</p>
+<p>5.支付<br>• 余额支付模块：产品详情 -&gt; 验证交易密码 -&gt; 创建订单<br>•  银行卡支付模块：产品详情 -&gt; 支付方式选择 -&gt; 验证交易密码 -&gt; 验证手机验证码 -&gt; 创建订单成功<br>•  支付宝支付模块：尚未进入开发阶段<br>•  提现模块，尚未进入开发阶段</p>
+<p>6.资产<br>• 一级页面资产模块<br>• 二级页面未满期总资金模块<br>• 二级页面我的余额模块<br>• 二级页面我的红包模块<br>• 二级页面我的银行卡模块<br>• 二级页面我的加油卡模块，尚未进入开发阶段<br>• 三级页面已购理财产品详情页模块<br>• 三级页面交易明细模块</p>
+<p>7.基于MaterialDesign的设置界面<br>• 退出登录模块<br>• 身份认证模块<br>• 个人安全中心其他模块：账号信息，登录密码，交易密码，手势密码，尚未进入开发阶段<br>• 清除缓存，检查更新，关于页面等模块，尚未进入开发阶段</p>
+<p>开发人员：<br>jiayang（主要Android开发&amp;设计）<br>加油宝技术研发中心后台人员(主要服务端开发)</p>
+<p>用到的开源库：<br>compile ‘com.android.support:appcompat-v7:25.+’<br>compile ‘com.android.support:design:25.0.0’<br>compile ‘com.jakewharton:butterknife:7.0.1’<br>compile ‘com.android.support:cardview-v7:25.+’<br>compile ‘com.squareup.okhttp3:okhttp:3.2.0’<br>compile ‘com.squareup.retrofit2:retrofit:2.1.0’<br>compile ‘com.squareup.retrofit2:adapter-rxjava:2.1.0’<br>compile ‘com.squareup.retrofit2:converter-gson:2.1.0’<br>compile ‘io.reactivex:rxjava:1.1.0’<br>compile ‘io.reactivex:rxandroid:1.1.0’<br>compile ‘com.jakewharton.rxbinding:rxbinding:0.4.0’<br>compile ‘com.orhanobut:logger:1.15’<br>compile ‘com.github.bumptech.glide:glide:3.7.0’<br>compile ‘me.grantland:autofittextview:0.2.+’<br>compile ‘com.jungly:gridPasswordView:0.3’<br>compile ‘com.rengwuxian.materialedittext:library:2.1.4’<br>compile ‘me.drakeet.multitype:multitype:2.3.0’</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/08/内存、内部存储路径、外存区别/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -367,7 +511,7 @@
       
         
           
-            <p>###内存、内部存储路径、外存区别<br>1.内存<br>RAM叫随机存取存储器，断电后数据丢失，<br>ROM叫只读存储器，只能读取信息，不能写入信息，断电后信息仍然保存<br>我们所说的内存一般指RAM<br>2.内部存储路径<br>即data/data/packagename/目录，这块路径不是内存，它位于系统内部一个特殊的位置，sharedpreference和数据库的存储都是在这里，内部存储空间十分有限<br>3.外存</p>
+            <p>1.内存<br>RAM叫随机存取存储器，断电后数据丢失，<br>ROM叫只读存储器，只能读取信息，不能写入信息，断电后信息仍然保存<br>我们所说的内存一般指RAM<br>2.内部存储路径<br>即data/data/packagename/目录，这块路径不是内存，它位于系统内部一个特殊的位置，sharedpreference和数据库的存储都是在这里，内部存储空间十分有限<br>3.外存</p>
 
           
         
@@ -719,7 +863,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -805,7 +949,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
